@@ -28,6 +28,12 @@ easy_install redis
 根据aspcms中的备份文件名规律。生成相应的文件名，对其进行猜解。
 
 
+4、svn信息泄露扫描
+
+多线程批量扫描SVN信息泄露漏洞。将待扫描的域名/IP列表保存在urlt.txt文件，然后执行，扫描完成后的结果保存result.txt文件中
+
+
+
 欢迎反馈bug
 
 我的邮箱是Glacier@insight-labs.org
