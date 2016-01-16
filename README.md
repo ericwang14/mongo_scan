@@ -30,7 +30,7 @@ easy_install redis
 
 4、svn信息泄露扫描
 
-多线程批量扫描SVN信息泄露漏洞。将待扫描的域名/IP列表保存在urlt.txt文件，然后执行，扫描完成后的结果保存result.txt文件中
+多线程批量扫描SVN信息泄露漏洞。将待扫描的域名/IP列表保存在url.txt文件，然后执行，扫描完成后的结果保存result.txt文件中
 
 
 
