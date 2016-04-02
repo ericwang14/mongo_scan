@@ -32,6 +32,9 @@ easy_install redis
 
 多线程批量扫描SVN信息泄露漏洞。将待扫描的域名/IP列表保存在url.txt文件，然后执行，扫描完成后的结果保存result.txt文件中
 
+5、用友OA注入和命令执行漏洞扫描程序
+
+批量扫描用友OA注入漏洞和命令执行漏洞。多线程。将待扫描的域名/IP（不需要加HTTP）列表保存在yyoa.txt文件，然后执行，扫描完成后的结果保存yyoaresult.txt文件中
 
 
 欢迎反馈bug
