@@ -36,7 +36,12 @@ easy_install redis
 
 批量扫描用友OA注入漏洞和命令执行漏洞。多线程。将待扫描的域名/IP（不需要加HTTP）列表保存在yyoa.txt文件，然后执行，扫描完成后的结果保存yyoaresult.txt文件中
 
+6、docker 未授权扫描漏洞
+
+最新出的docker未授权漏洞批量扫描脚本。多线程。需要把目标保存在ips.txt（不加端口，不加http）。结果保存在result.txt中。
+
 
 欢迎反馈bug
 
 我的邮箱是Glacier@insight-labs.org
+
