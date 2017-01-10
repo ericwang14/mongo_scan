@@ -4,12 +4,13 @@ from pymongo import MongoClient
 import sys,re
 import threading
 from termcolor import colored
+import ip_loop
 
 result = []
 
 def loop(ip):
     try:
-        #print "[-] Scan %s ......"%ip
+        print "[-] Scan %s ......"%ip
         client = MongoClient(ip,27017,connectTimeoutMS=1000,socketTimeoutMS=1000,waitQueueTimeoutMS=1000)
         serverInfo = client.server_info()
         try:
@@ -35,13 +36,15 @@ def loop(ip):
             pass
         client.close()
         
-        #print str(ip)+"      Congratulations, NO auth needed!"
+        print str(ip)+"      Congratulations, NO auth needed!"
     except KeyboardInterrupt:
         print "[-] Interrupted by user. Exiting..."
         exit()
     except:
-        #print str(ip)+"      Connection Failed :<"
+        print str(ip)+"      Connection Failed :<"
         pass
+
+    return
 
 
 def doThreads(subIPs):
@@ -66,21 +69,18 @@ def main():
 
     threadNum = int(sys.argv[1])
 
-    fp = open(sys.argv[2])
-    lines = fp.read()
-    fp.close()
 
-    ips = re.findall(r'[0-9]+(?:\.[0-9]+){3}',lines)
-    ips = list(set(ips))
+   # ips = ['1.12.0.0','1.24.0.0']
+    ips = ip_loop.init_ip_dictionary()
     ipCount=len(ips)
 
-    #print "%d IPs to scan. Estimated time of finish: %ds\n"%(ipCount,ipCount/threadNum+1)
+    print "%d IPs to scan. Estimated time of finish: %ds\n"%(ipCount,ipCount/threadNum+1)
 
     sublist = lambda lst, sz: [lst[i:i+sz] for i in range(0, len(lst), sz)]
     for subIPs in sublist(ips,threadNum):
         doThreads(subIPs)
 
-#    raw_input("Scan finished. Press ENTER to exit...")
+    raw_input("Scan finished. Press ENTER to exit...")
     print "[-] Result:"
     print result
 
